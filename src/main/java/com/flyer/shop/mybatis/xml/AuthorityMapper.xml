@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flyer.shop.mybatis.dao.IAuthorityMapper">
+	<resultMap type="authority" id="baseRM">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="auth_name" property="authName" jdbcType="VARCHAR" />
+		<result column="auth_sign" property="authSign" jdbcType="VARCHAR" />
+		<result column="auth_desc" property="authDesc" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<resultMap type="authority" id="roleAndAuthRM" extends="baseRM">
+		<collection property="roles" ofType="role">
+			<id column="r_id" property="id" jdbcType="BIGINT" />
+			<result column="r_name" property="roleName" jdbcType="VARCHAR" />
+			<result column="r_sign" property="roleSign" jdbcType="VARCHAR" />
+			<result column="r_desc" property="roleDesc" jdbcType="VARCHAR" />
+			<result column="r_create_time" property="createTime" jdbcType="TIMESTAMP" />
+		</collection>
+	</resultMap>
+
+
+	<sql id="table">
+		sys_authority
+	</sql>
+
+	<sql id="baseColumn">
+		id,
+		auth_name,
+		auth_sign,
+		auth_desc,
+		create_time
+	</sql>
+
+	<select id="select" parameterType="authority" resultMap="baseRM">
+		select
+		<include refid="baseColumn" />
+		from
+		<include refid="table" />
+		
+		<where>
+			<if test="id !=null ">
+				and id = #{id , jdbcType=BIGINT}
+			</if>
+			<if test="authName !=null and '' != authName">
+				and auth_name = #{authName , jdbcType=VARCHAR}
+			</if>
+			<if test="authSign !=null and '' != authSign">
+				and auth_sign = #{authSign , jdbcType=VARCHAR}
+			</if>
+			<if test="authDesc !=null and '' != authDesc">
+				and auth_desc = #{authDesc , jdbcType=VARCHAR}
+			</if>
+			<if test="createTime !=null ">
+				and create_time = #{createTime , jdbcType=TIMESTAMP}
+			</if>
+			and id &lt;&gt; 1
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="authority">
+		insert into
+		<include refid="table" />
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id !=null ">
+				id,
+			</if>
+			<if test="authName !=null and '' != authName">
+				auth_name,
+			</if>
+			<if test="authSign !=null and '' != authSign">
+				auth_sign,
+			</if>
+			<if test="authDesc !=null and '' != authDesc">
+				auth_desc,
+			</if>
+			<if test="createTime !=null ">
+				create_time,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id !=null ">
+				#{id , jdbcType=BIGINT},
+			</if>
+			<if test="authName !=null and '' != authName">
+				#{authName , jdbcType=VARCHAR},
+			</if>
+			<if test="authSign !=null and '' != authSign">
+				#{authSign , jdbcType=VARCHAR},
+			</if>
+			<if test="authDesc !=null and '' != authDesc">
+				#{authDesc , jdbcType=VARCHAR},
+			</if>
+			<if test="createTime !=null ">
+				#{createTime , jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+
+	<update id="update" parameterType="authority">
+		update
+		<include refid="table" />
+		a
+		<set>
+			<if test="authName !=null and '' != authName">
+				a.auth_name = #{authName , jdbcType=VARCHAR},
+			</if>
+			<if test="authSign !=null and '' != authSign">
+				a.auth_sign = #{authSign , jdbcType=VARCHAR},
+			</if>
+			<if test="authDesc !=null and '' != authDesc">
+				a.auth_desc = #{authDesc , jdbcType=VARCHAR},
+			</if>
+			<if test="createTime !=null ">
+				a.create_time = #{createTime , jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		<where>
+			a.id = #{id ,jdbcType=BIGINT }
+		</where>
+	</update>
+
+	<delete id="delete" parameterType="authority">
+		delete from
+		<include refid="table" />
+		<where>
+			<if test="id!=null">
+				and id = #{id , jdbcType=BIGINT}
+			</if>
+		</where>
+	</delete>
+
+	<select id="selectAuthoritysByRoleId" parameterType="java.lang.Long"
+		resultMap="baseRM">
+		select
+		a.id,
+		a.auth_name,
+		a.auth_sign,
+		a.auth_desc,
+		a.create_time
+		from
+		<include refid="table" />
+		a
+		, sys_tre_role_authority ra
+		where a.id = ra.auth_id and ra.role_id=#{roleId ,
+		jdbcType=BIGINT}
+	</select>
+
+	<select id="selectAuthorityaAndRole" parameterType="java.lang.Long" resultMap="roleAndAuthRM">
+		SELECT
+		a.id,
+		a.auth_name,
+		a.auth_sign,
+		a.auth_desc,
+		a.create_time,
+		r.id AS r_id,
+		r.r_name as r_name,
+		r.r_sign as r_sign,
+		r.r_desc as r_desc,
+		r.create_time as r_create_time
+		FROM
+		<include refid="table" /> a
+		LEFT JOIN sys_tre_role_authority
+		ra ON a.id = ra.auth_id
+		LEFT JOIN
+		sys_role r ON r.id = ra.role_id and r.id = #{roleId}
+		where a.id &lt;&gt; 1
+	</select>
+
+
+
+</mapper>

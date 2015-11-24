@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.flyer.shop.mybatis.dao.IUserMapper">
+
+	<resultMap type="user" id="baseRM">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="u_name" property="username" jdbcType="VARCHAR" />
+		<result column="u_pwd" property="password" jdbcType="VARCHAR" />
+		<result column="realname" property="realname" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="telephone" property="telephone" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<resultMap type="user" id="dicRM" extends="baseRM">
+		<association property="dicSex" javaType="dictionary">
+			<id column="dic_s_id" property="id" jdbcType="BIGINT" />
+			<result column="dic_s_code" property="code" jdbcType="BIGINT" />
+			<result column="dic_s_sub_code" property="subCode" jdbcType="INTEGER" />
+			<result column="dic_s_sub_name" property="subName" jdbcType="VARCHAR" />
+			<result column="dic_s_create_time" property="createTime"
+				jdbcType="TIMESTAMP" />
+		</association>
+		<association property="dicStatus" javaType="dictionary">
+			<id column="dic_u_id" property="id" jdbcType="BIGINT" />
+			<result column="dic_u_code" property="code" jdbcType="BIGINT" />
+			<result column="dic_u_sub_code" property="subCode" jdbcType="INTEGER" />
+			<result column="dic_u_sub_name" property="subName" jdbcType="VARCHAR" />
+			<result column="dic_u_create_time" property="createTime"
+				jdbcType="TIMESTAMP" />
+		</association>
+	</resultMap>
+
+	<sql id="table">
+		sys_user
+	</sql>
+
+	<sql id="baseColumn">
+		id,
+		u_name,
+		u_pwd,
+		u_status,
+		realname,
+		sex,
+		address,
+		email,
+		telephone,
+		create_time
+	</sql>
+
+	<sql id="baseWhere">
+		<if test="id !=null ">
+			and u.id = #{id , jdbcType=BIGINT}
+		</if>
+		<if test="username !=null and '' != username">
+			and u.u_name = #{username , jdbcType=VARCHAR}
+		</if>
+		<if test="password !=null and '' != password">
+			and u.u_pwd = #{password , jdbcType=VARCHAR}
+		</if>
+		<if test="dicStatus!=null and dicStatus.subCode !=0 ">
+			and u.u_status = #{dicStatus.subCode , jdbcType=INTEGER}
+		</if>
+		<if test="realname !=null and '' != realname">
+			and u.realname = #{realname , jdbcType=VARCHAR}
+		</if>
+		<if test="address !=null and '' != address">
+			and u.address = #{address , jdbcType=VARCHAR}
+		</if>
+		<if test="dicSex!=null and dicSex.subCode !=0 ">
+			and u.sex = #{dicSex.subCode , jdbcType=INTEGER}
+		</if>
+		<if test="email !=null and '' != email">
+			and u.email = #{email , jdbcType=VARCHAR}
+		</if>
+		<if test="telephone !=null and '' != telephone">
+			and u.telephone = #{telephone , jdbcType=VARCHAR}
+		</if>
+		<if test="createTime !=null ">
+			and u.create_time = #{createTime , jdbcType=TIMESTAMP}
+		</if>
+	</sql>
+
+	<sql id="baseInsert">
+		#{id,jdbcType=BIGINT},
+		#{username,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{dicStatus.subCode,jdbcType=INTEGER},
+		#{realname,jdbcType=VARCHAR},
+		#{dicSex.subCode,jdbcType=INTEGER},
+		#{address,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{telephone,jdbcType=VARCHAR},
+		#{createTime,jdbcType=TIMESTAMP}
+	</sql>
+
+	<select id="select" parameterType="user" resultMap="dicRM">
+		select
+		u.id,
+		u.u_name,
+		u.u_pwd,
+		u.realname,
+		u.sex,
+		u.address,
+		u.email,
+		u.telephone,
+		u.create_time,
+		dsex.id as dic_s_id,
+		dsex.code as dic_s_code,
+		dsex.sub_code as dic_s_sub_code,
+		dsex.sub_name as dic_s_sub_name,
+		dsex.create_time as dic_s_create_time,
+		dst.id as dic_u_id,
+		dst.code as
+		dic_u_code,
+		dst.sub_code as dic_u_sub_code,
+		dst.sub_name as
+		dic_u_sub_name,
+		dst.create_time as dic_u_create_time
+		from
+		<include refid="table" />
+		u
+		left join sys_dictionary dsex on dsex.sub_code = u.sex and dsex.code
+		=
+		2
+		left join sys_dictionary dst on dst.sub_code = u.u_status and
+		dst.code =1
+
+
+		<where>
+			<include refid="baseWhere" />
+			<if test="username != 'admin'">
+			and u.id &lt;&gt; 1
+			</if>
+		</where>
+		
+	</select>
+
+	<insert id="insert" parameterType="user">
+
+		<trim></trim>
+		<selectKey resultType="java.lang.Long" order="AFTER"
+			keyProperty="id">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+		insert into
+		<include refid="table" />
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="username != null and '' != username">
+				u_name,
+			</if>
+			<if test="password !=null and '' != password">
+				u_pwd,
+			</if>
+			<if test="dicStatus !=null and  dicStatus.subCode !=null">
+				u_status,
+			</if>
+			<if test="realname !=null and '' != realname">
+				realname,
+			</if>
+			<if test="dicSex !=null and dicSex.subCode !=null">
+				sex,
+			</if>
+			<if test="address !=null and '' != address">
+				address,
+			</if>
+			<if test="email !=null and '' != email">
+				email,
+			</if>
+			<if test="telephone !=null and '' != telephone">
+				telephone,
+			</if>
+			<if test="createTime !=null and '' != createTime">
+				create_time,
+			</if>
+		</trim>
+		values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="username != null and '' != username">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password !=null and '' != password">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="dicStatus !=null and  dicStatus.subCode !=null">
+				#{dicStatus.subCode,jdbcType=INTEGER},
+			</if>
+			<if test="realname !=null and '' != realname">
+				#{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="dicSex !=null and dicSex.subCode !=null">
+				#{dicSex.subCode,jdbcType=INTEGER},
+			</if>
+			<if test="address !=null and '' != address">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="email !=null and '' != email">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="telephone !=null and '' != telephone">
+				#{telephone,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime !=null and '' != createTime">
+				#{createTime,jdbcType=TIMESTAMP}
+			</if>
+		</trim>
+	</insert>
+
+	<update id="update" parameterType="user">
+		update
+		<include refid="table" />
+		u
+		<set>
+			<if test="username !=null and '' != username">
+				u.u_name = #{username , jdbcType=VARCHAR},
+			</if>
+			<if test="password !=null and '' != password">
+				u.u_pwd = #{password , jdbcType=VARCHAR},
+			</if>
+			<if test="dicStatus!=null and dicStatus.subCode !=0 ">
+				u.u_status = #{dicStatus.subCode , jdbcType=INTEGER},
+			</if>
+			<if test="realname !=null and '' != realname">
+				u.realname = #{realname , jdbcType=VARCHAR},
+			</if>
+			<if test="address !=null and '' != address">
+				u.address = #{address , jdbcType=VARCHAR},
+			</if>
+			<if test="dicSex!=null and dicSex.subCode !=0 ">
+				u.sex = #{dicSex.subCode , jdbcType=INTEGER},
+			</if>
+			<if test="email !=null and '' != email">
+				u.email = #{email , jdbcType=VARCHAR},
+			</if>
+			<if test="telephone !=null and '' != telephone">
+				u.telephone = #{telephone , jdbcType=VARCHAR},
+			</if>
+			<if test="createTime !=null ">
+				u.create_time = #{createTime , jdbcType=TIMESTAMP}
+			</if>
+		</set>
+		<where>
+			u.id = #{id ,jdbcType=BIGINT }
+		</where>
+	</update>
+
+	<delete id="delete" parameterType="user">
+		delete from
+		<include refid="table" />
+		<where>
+			<if test="id!=null">
+				and id = #{id , jdbcType=BIGINT}
+			</if>
+		</where>
+	</delete>
+
+	<!-- 用户登录验证查询 -->
+	<select id="authentication" resultMap="baseRM" parameterType="user">
+		select
+		<include refid="baseColumn" />
+		from
+		<include refid="table" />
+		where
+		u_name = #{username,jdbcType=VARCHAR}
+		and
+		u_pwd =
+		#{password,jdbcType=VARCHAR}
+	</select>
+
+	<delete id="deleteRoleAndRole" parameterType="java.lang.Long">
+		delete from
+		sys_tre_user_role where user_id = #{userId}
+	</delete>
+
+	<insert id="insertUserAndRole" parameterType="java.util.List">
+		insert into sys_tre_user_role
+		(user_id,
+		role_id)
+		values
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.user.id},#{item.role.id})
+		</foreach>
+	</insert>
+
+
+</mapper>
