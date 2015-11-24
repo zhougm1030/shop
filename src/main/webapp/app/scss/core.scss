@@ -3,16 +3,7 @@ $top-tool-bar-color: #777;
 $top-tool-bar-fontsize:12px;
 $top-tool-bar-height:30px;
 
-@mixin clearfix() {
-  &:before,
-  &:after {
-    content: " "; // 1
-    display: table; // 2
-  }
-  &:after {
-    clear: both;
-  }
-}
+
 
 .top-tool-bar {
   background-color: $top-tool-bar-bgcolor;

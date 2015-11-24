@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--bootstrap 框架-->
     <link href="${pageContext.request.contextPath}/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/app/css/core.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/app/css/shop.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -45,6 +45,22 @@
             </dl>
         </div>
     </div>
+</div>
+
+<div class="container header">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="#"><img src="http://image.leimingtech.net/upload/logo/1448273713855.png" style="max-height:60px;max-width:300px" class="pngFix"></a>
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="text">
+            <button class="btn btn-search"><i></i>搜索</button>
+        </div>
+        <div class="col-md-3">
+            <input type="text">
+        </div>
+    </div>
+
 </div>
 
 <script src="${pageContext.request.contextPath}/assets/jquery/jquery.min.js"></script>
