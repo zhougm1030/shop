@@ -17,9 +17,14 @@
 				<!-- 静态资源允许访问 -->
 				/app/** = anon
 				/assets/** = anon
+
+                <!--主页面-->
+                /rest/shop/** = anon
+
 				<!-- 登录页允许访问 -->
 				/rest/login = anon
 				/rest/user/login = anon
+
 				<!-- 其他资源需要认证 -->
 				/** = authc
 			</value>

@@ -45,7 +45,18 @@ public class PageController {
 	 */
 	@RequestMapping("/error/{page}")
 	public String error(@PathVariable String page) {
-		return "error/"+page;
+		return "/error/"+page;
+	}
+
+
+	/**
+	 * 商品页面
+	 * @param page
+	 * @return
+	 */
+	@RequestMapping("/shop/{page}")
+	public String shop(@PathVariable String page){
+		return "/shop/"+page;
 	}
 
 }
