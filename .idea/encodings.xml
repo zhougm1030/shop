@@ -2,6 +2,13 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app/css/shop.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app/scss/core.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app/scss/header.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app/scss/mixin.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app/scss/mixin/clearfix.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app/scss/mixin/dorpdown.scss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/app/scss/shop.scss" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

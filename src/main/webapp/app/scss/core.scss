@@ -27,14 +27,30 @@ $top-tool-bar-height:30px;
     }
   }
 
-  .quick-menu {
-    font-size: 0px;
+  .quick-bar {
+    font-size: 12px;
     text-align: right;
     height:$top-tool-bar-height;
     float: right;
+    zoom: 3;
     @include clearfix;
+    .quick-menu{
+      @include dropdown(80px,30px,0px,#FAFAFA,#FFF,80px,'r');
+      float: left;
+      @include clearfix;
 
-    dl {
+      ul{
+        padding-left: 0px;
+        list-style-type:none;
+        li{
+          padding:5px 0;
+        }
+      }
+    }
+
+
+
+    /*dl {
       text-align: left;
       vertical-align: top;
       letter-spacing: normal;
@@ -109,7 +125,7 @@ $top-tool-bar-height:30px;
           transform-origin: 50% 30% 0px;
         }
       }
-    }
+    }*/
   }
 }
 

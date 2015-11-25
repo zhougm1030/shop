@@ -29,8 +29,28 @@
            [<a href="#">注册</a>]
        </div>
 
-        <div class="quick-menu" ng-controller="namesCtrl">
-            <dl ng-repeat="name in names">
+        <div >
+
+        </div>
+        <div class="quick-bar" ng-controller="namesCtrl">
+            <div class="quick-menu" ng-repeat="name in names">
+                <div class="dd-main-layer">
+                    {{name.name}}
+                    <i></i>
+                </div>
+                <div class="dd-content-layer">
+                    <div class="dd-spacer"></div>
+                    <div class="dd-list">
+                        <ul >
+                            <li ng-repeat="c in name.child">
+                                <a href="#">{{c.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <%--<dl ng-repeat="name in names">
                 <dt>
                     <a href="#">{{name.name}}</a>
                     <i></i>
@@ -42,7 +62,7 @@
                         </li>
                     </ul>
                 </dd>
-            </dl>
+            </dl>--%>
         </div>
     </div>
 </div>
@@ -52,12 +72,25 @@
         <div class="col-md-3">
             <a href="#"><img src="http://image.leimingtech.net/upload/logo/1448273713855.png" style="max-height:60px;max-width:300px" class="pngFix"></a>
         </div>
-        <div class="col-md-6">
-            <input type="text" class="text">
-            <button class="btn btn-search"><i></i>搜索</button>
+        <div class="col-md-7 search">
+            <input type="text" class="text" placeholder="请输入你要搜索的关键字">
+            <button class="btn input-submit"><i></i>搜索</button>
         </div>
-        <div class="col-md-3">
-            <input type="text">
+        <div class="col-md-2 ">
+
+            <div class="user-menu">
+                <div class="dd-main-layer">
+                    我的购物车
+                    <i></i>
+                </div>
+                <div class="dd-content-layer">
+                    <div class="dd-spacer"></div>
+                    <div class="dd-list">
+                        测试
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -92,7 +125,15 @@
     });
 
     $(function($) {
-        $(".quick-menu dl").hover(
+        $(".quick-menu").hover(
+                function () {
+                    $(this).addClass("hover");
+                },
+                function () {
+                    $(this).removeClass("hover");
+                }
+        );
+        $(".user-menu").hover(
                 function () {
                     $(this).addClass("hover");
                 },

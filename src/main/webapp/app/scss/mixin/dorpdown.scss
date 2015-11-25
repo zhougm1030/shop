@@ -1,0 +1,74 @@
+
+
+
+
+@mixin dropdown($width , $height ,$padding,$background,$hover-bg,$content-width,$lr) {
+
+  position: relative;
+  width: $width;
+  height: $height;
+
+  .dd-main-layer {
+    position: relative;
+    cursor: default;
+    zoom: 1;
+
+    width: $width;
+    height: $height;
+    border: 1px solid #DFDFDF;
+    padding:$padding;
+
+    background: $background;
+    text-align: center;
+    line-height: $height;
+
+
+  }
+
+  .dd-content-layer {
+    display: none;
+    position: absolute;
+
+    @if $lr == r {
+      right: 0;
+    } @else if $lr == l {
+      left: 0;
+    }
+    @include clearfix;
+    .dd-spacer {
+      position: absolute;
+
+      @if $lr == r {
+        right: 0;
+      } @else if $lr == l {
+        left: 0;
+      }
+      @include clearfix;
+      top: -7px;
+      width: $width - 2px;
+      height: 12px;
+      background: $hover-bg;
+
+    }
+    .dd-list {
+
+    }
+  }
+
+  &.hover {
+    .dd-main-layer {
+      border: 1px solid #DFDFDF;
+      background: $hover-bg;
+    }
+    .dd-content-layer {
+      display: block;
+      width: $content-width;
+      border: 1px solid #DFDFDF;
+      padding: $padding;
+      text-align: center;
+
+    }
+
+  }
+
+}
