@@ -1,0 +1,155 @@
+$nav-bar-height: 44px;
+$nav-bar-width: 190px;
+
+.nav-bar {
+  border-bottom: 2px solid #B1191A;
+
+  //fenlei
+  .category {
+    float: left;
+    @include clearfix;
+    @include dropdown($nav-bar-width, $nav-bar-height, 5px, #B1191A, #B1191A, 190px, 'l');
+
+    .dd-main-layer {
+      border: 1px solid #B1191A;
+      padding: 0px;
+      text-align: left;
+      border: 0px;
+
+      a {
+        display: block;
+        width: $nav-bar-width;
+        height: $nav-bar-height;
+        padding: 0 10px;
+        background: #B1191A;
+        font: 400 15px/44px "microsoft yahei";
+        color: #fff;
+        text-decoration: none
+      }
+
+    }
+
+    .dd-content-layer {
+      background-color: #c81623;
+      border: 0px;
+      display: block;
+      width: $nav-bar-width;
+      text-align: center;
+
+      .dd-spacer {
+        width: $nav-bar-width;
+        height: 9px;
+      }
+
+      ul {
+        padding-left: 0px;
+        list-style-type: none;
+        margin-top:2px;
+        margin-bottom: 1px;
+        li {
+          padding: 8px 10px;
+          overflow: hidden;
+          line-height: 17px;
+          vertical-align: bottom;
+          border-left: 1px solid #b61d1d;
+          position: relative;
+          z-index: 1;
+          height: 31px;
+
+          i{
+            position: absolute;
+            z-index: 1;
+            top: 9px;
+            right: 14px;
+            width: 4px;
+            height: 14px;
+            font: 400 9px/14px consolas;
+            color: #FFFFFF;
+          }
+
+          a {
+
+            z-index: 2;
+            display: block;
+            font-family: "microsoft yahei";
+            font-size: 14px;
+            font-weight: 400;
+            color: #fff;
+
+
+          }
+          &:hover{
+            background-color: #fff;
+
+            a{
+              color: #b61d1d;
+            }
+          }
+          div {
+            float: left;
+          }
+
+        }
+      }
+
+
+      .dd-list-sub{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 190px;
+        border-right: 1px solid #b61d1d;
+        border-bottom: 1px solid #b61d1d;
+        height:100%;
+        width: 950px;
+        .list-sub{
+
+        }
+      }
+
+
+    }
+
+    &.hover {
+      .dd-main-layer {
+        border: 0px;
+      }
+      .dd-content-layer{
+        border: 0px;
+      }
+
+
+    }
+  }
+
+  //daohang
+  .nav-menu {
+    float: left;
+    height: $nav-bar-height;
+    @include clearfix;
+    ul {
+      padding-left: 0px;
+      list-style-type: none;
+      height: $nav-bar-height;
+      li {
+        float: left;
+        height: $nav-bar-height;
+        @include clearfix;
+        a {
+          display: block;
+          padding: 0 20px;
+          line-height: $nav-bar-height;
+          color: #333;
+          text-align: center;
+          text-decoration: none;
+          font: 400 15px/44px "microsoft yahei";
+          &:hover {
+            color: #B1191A;
+          }
+        }
+      }
+    ;
+    }
+  }
+
+}

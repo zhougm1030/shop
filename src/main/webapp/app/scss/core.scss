@@ -32,35 +32,19 @@ $top-tool-bar-height:30px;
     text-align: right;
     height:$top-tool-bar-height;
     float: right;
-    zoom: 3;
     @include clearfix;
     .quick-menu{
-      @include dropdown(80px,30px,0px,#FAFAFA,#FFF,80px,'r');
+
+      z-index: 999;
       float: left;
+      @include dropdown(80px,30px,0px,#FAFAFA,#FFF,80px,'r');
       @include clearfix;
 
-      ul{
-        padding-left: 0px;
-        list-style-type:none;
-        li{
-          padding:5px 0;
-        }
+      .dd-main-layer{
+          border: {
+            width: 0px;
+          };
       }
-    }
-
-
-
-    /*dl {
-      text-align: left;
-      vertical-align: top;
-      letter-spacing: normal;
-      word-spacing: normal;
-      display: inline-block;
-      width: 80px;
-      height: $top-tool-bar-height;
-      position: relative;
-      z-index: 999;
-      margin: 0;
 
       i {
         background: transparent url("../images/top_bg.png") no-repeat scroll 0px 0px;
@@ -72,60 +56,36 @@ $top-tool-bar-height:30px;
         transition: all 0.2s ease-in 0s;
       }
 
-      dd {
-        background-color: #FFF;
-        display: none;
-        width: 78px;
-        border: 1px solid #F0F0F0;
-        position: absolute;
-        z-index: 1;
-        top: 0px;
-        left: 0px;
-
-        ul {
-          margin: $top-tool-bar-height 0px 0px;
-          list-style-type:none;
-          padding-left: 0px;
-
-          li {
-
-            a {
-              font-size: 12px;
-              line-height: 24px;
-              display: block;
-              clear: both;
-              padding: 2px 0px 2px 11px;
-
-              &:hover{
-                text-decoration: none;
-                background-color: #F7F7F7;
-              }
-            }
-          }
+      ul{
+        padding-left: 0px;
+        list-style-type:none;
+        li{
+          padding:3px 0;
         }
       }
 
-      dt {
-        font-size: 12px;
-        line-height: 20px;
-        height: 20px;
-        padding: 5px 0px;
-        position: absolute;
-        z-index: 2;
-        top: 0px;
-        left: 12px;
-        font-weight: normal;
-      }
       &.hover{
-        dd {
-          display: block;
+        .dd-main-layer{
+          border: {
+            top: {
+              width: 0px;
+            };
+          };
         }
+
         i {
           transform: rotate(180deg);
           transform-origin: 50% 30% 0px;
         }
       }
-    }*/
+
+      a{
+        color: $top-tool-bar-color;
+        &:hover{
+          color: red;
+        }
+      }
+    }
   }
 }
 

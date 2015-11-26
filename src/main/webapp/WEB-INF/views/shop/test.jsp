@@ -21,23 +21,9 @@
 </head>
 <body>
 
-<div id="top-tool-bar" class="top-tool-bar" ng-app="myApp" >
-    <div class="container">
-        <div  class="user-bar">
+<div style="padding:6px 8px;width: 25px;">
 
-            <div class="dd-main-layer">
-                    测试
-            </div>
-            <div class="dd-content-layer">
-                <div class="dd-spacer"></div>
-                <div class="dd-list">
-                    测试
-                </div>
-            </div>
-
-        </div>
-
-    </div>
+    最新商品
 </div>
 
 
