@@ -3,7 +3,13 @@ $nav-bar-width: 190px;
 
 .nav-bar {
   border-bottom: 2px solid #B1191A;
+  ul{
+    list-style-type: none;
+  }
 
+  dl{
+    display: block;
+  }
   //fenlei
   .category {
     float: left;
@@ -41,14 +47,15 @@ $nav-bar-width: 190px;
         height: 9px;
       }
 
-      ul {
+
+      .dd-ul {
         padding-left: 0px;
         list-style-type: none;
         margin-top:2px;
         margin-bottom: 1px;
-        li {
+        .dd-li {
           padding: 8px 10px;
-          overflow: hidden;
+          //overflow: hidden;
           line-height: 17px;
           vertical-align: bottom;
           border-left: 1px solid #b61d1d;
@@ -78,9 +85,81 @@ $nav-bar-width: 190px;
 
 
           }
+
+          .dd-list-sub{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 189px;
+            border-right: 1px solid #b61d1d;
+            border-bottom: 1px solid #b61d1d;
+            height:100%;
+            width: 950px;
+            .list-sub{
+              height:100%;
+              width: 950px;
+            }
+
+            a{
+              color: #666 !important;
+              text-decoration: none;
+            }
+
+            .sub-dl{
+              width: 100%;
+              overflow: hidden;
+              line-height: 2em;
+              margin-bottom: 0px;
+
+              .sub-dt{
+                float: left;
+                position: relative;
+
+                padding: 8px 30px 0 0;
+                text-align: right;
+                a{
+                  font-weight: 700 !important;
+                }
+
+                i{
+                  position: absolute;
+                  top: 13px;
+                  right: 18px;
+                  width: 4px;
+                  height: 14px;
+                  font: 400 9px/14px consolas;
+                  color: #666 !important;
+                }
+              }
+              .sub-dd{
+                float: left;
+                width: 620px;
+                padding:6px 0;
+                a{
+                  float: left;
+                  padding: 0 8px;
+                  margin: 4px 0;
+                  line-height: 16px;
+                  height: 16px;
+                  border-left: 1px solid #e0e0e0;
+                  white-space: nowrap;
+
+                  &:hover{
+                    color: #b61d1d  !important;
+                  }
+
+
+                }
+              }
+
+            }
+          }
           &:hover{
             background-color: #fff;
-
+            .dd-list-sub{
+              display: block;
+              padding: 0 0 0 20px ;
+            }
             a{
               color: #b61d1d;
             }
@@ -89,23 +168,15 @@ $nav-bar-width: 190px;
             float: left;
           }
 
+
+
+
+
         }
       }
 
 
-      .dd-list-sub{
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 190px;
-        border-right: 1px solid #b61d1d;
-        border-bottom: 1px solid #b61d1d;
-        height:100%;
-        width: 950px;
-        .list-sub{
 
-        }
-      }
 
 
     }

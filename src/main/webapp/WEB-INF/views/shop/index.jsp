@@ -56,21 +56,27 @@
                 }
 
         );
-
-
         $(".dd-list ul li").hover(
                 function () {
 
-                    $(".dd-list-sub").show();
-                    $("#sub-"+$(this).attr('id')).show();
-                }
-               /* function () {
-                    $(".dd-list-sub").hide();
+                    var index = $(this).data("index");
+                    var pHeight = $(this).parent().height();
+                    var sub =  $("#sub-"+$(this).attr('id'));
+
+                    sub.css('top' , -((index -1) * 31));
+                    sub.height(pHeight);
+                    sub.show();
+
+                },
+                function () {
+
                     $("#sub-"+$(this).attr('id')).hide();
 
-                }*/
+                }
 
         );
+
+
     });
 
 </script>

@@ -15,21 +15,32 @@
             <div class="dd-content-layer">
                 <div class="dd-spacer"></div>
                 <div class="dd-list">
-                    <ul>
-                        <li ng-repeat="nav in navs" id="nav-{{nav.index}}">
+                    <ul class="dd-ul">
+                        <li class="dd-li" ng-repeat="nav in navs" id="nav-{{nav.index}}" data-index="{{nav.index}}">
                             <a href="#">{{nav.name}}</a>
                             <i>></i>
+                            <div class="dd-list-sub" id="sub-nav-{{nav.index}}">
+                                <dl class="sub-dl" ng-repeat="c in nav.child">
+                                    <dt class="sub-dt">
+                                        <a href="#">{{c.name}}</a>
+                                        <i>&gt;</i>
+                                    </dt>
+                                    <dd class="sub-dd" ><a href="#" ng-repeat="c1 in c.child">{{c1.name}}</a></dd>
+                                </dl>
+                            </div>
+
+
                         </li>
                     </ul>
                 </div>
-                <div class="dd-list-sub" >
+                <%--<div class="dd-list-sub" >
                     <div class="list-sub" ng-repeat="nav in navs" id="sub-nav-{{nav.index}}">
                         <div ng-repeat="c in nav.child">
                             {{c.name}}
                         </div>
 
                     </div>
-                </div>
+                </div>--%>
             </div>
         </div>
 
