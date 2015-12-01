@@ -1,0 +1,97 @@
+
+
+html {
+  font-size: 12px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $text-color;
+  background-color: $body-bg;
+}
+a {
+  color:  nth($linkColor,1);
+  text-decoration: none;
+  outline: medium none;
+  -webkit-transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  &:hover{
+    text-decoration: none;
+    color:  nth($linkColor,2);
+  }
+
+}
+ul{
+  list-style-type: none;
+}
+.ul-pd-l-0{
+  padding-left:0;
+}
+@for $i from 1 through 20 {
+  .pd-t-#{$i} { padding-top: 1px*$i; }
+  .pd-r-#{$i} { padding-right:1px*$i; }
+  .pd-b-#{$i} { padding-bottom:1px*$i; }
+  .pd-l-#{$i} { padding-left: 1px*$i; }
+  .pd-#{$i}{padding:1px*$i}
+}
+
+@for $i from 1 through 20 {
+  .mg-t-#{$i} { margin-top: 1px*$i; }
+  .mg-r-#{$i} { margin-right: 1px*$i; }
+  .mg-b-#{$i} { margin-bottom: 1px*$i; }
+  .mg-l-#{$i} { margin-left: 1px*$i; }
+}
+
+
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+
+.title{
+  font-size: 20px;
+  font-family:'Microsoft YaHei';
+}
+
+$border-list:all, top, right, bottom, left;
+@each $border in $border-list {
+  .border-#{$border}{
+    @if $border==all{
+      border:1px solid $border-color;
+    }@else{
+      border-#{$border}:1px solid $border-color;
+    }
+  }
+}
+
+.footer-dl{
+  dt{
+    @extend .pd-5;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  dd{
+    @extend .pd-l-5;
+    @extend .pd-t-2;
+  }
+}
+
+.links{
+  text-align: center;
+  a{
+    padding: 5px;
+  }
+}
+
+
+
+
+
+
+

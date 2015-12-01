@@ -3,9 +3,7 @@ $nav-bar-width: 190px;
 
 .nav-bar {
   border-bottom: 2px solid #B1191A;
-  ul{
-    list-style-type: none;
-  }
+
 
   dl{
     display: block;
@@ -95,6 +93,8 @@ $nav-bar-width: 190px;
             border-bottom: 1px solid #b61d1d;
             height:100%;
             width: 950px;
+            background-color:#FFF;
+
             .list-sub{
               height:100%;
               width: 950px;
@@ -167,18 +167,8 @@ $nav-bar-width: 190px;
           div {
             float: left;
           }
-
-
-
-
-
         }
       }
-
-
-
-
-
     }
 
     &.hover {
@@ -188,8 +178,6 @@ $nav-bar-width: 190px;
       .dd-content-layer{
         border: 0px;
       }
-
-
     }
   }
 
@@ -218,8 +206,7 @@ $nav-bar-width: 190px;
             color: #B1191A;
           }
         }
-      }
-    ;
+      } ;
     }
   }
 

@@ -33,14 +33,6 @@
                         </li>
                     </ul>
                 </div>
-                <%--<div class="dd-list-sub" >
-                    <div class="list-sub" ng-repeat="nav in navs" id="sub-nav-{{nav.index}}">
-                        <div ng-repeat="c in nav.child">
-                            {{c.name}}
-                        </div>
-
-                    </div>
-                </div>--%>
             </div>
         </div>
 

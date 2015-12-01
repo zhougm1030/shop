@@ -18,6 +18,8 @@
     <![endif]-->
     <script src="${pageContext.request.contextPath}/assets/AngularJS/angular.min.js"></script>
     <title>B2C</title>
+
+
 </head>
 <body ng-app="myApp">
 
@@ -27,13 +29,55 @@
 
 <jsp:include page="nav.jsp"></jsp:include>
 
+<jsp:include page="lb-images.jsp"></jsp:include>
+
+<jsp:include page="hot.jsp"></jsp:include>
+
+<jsp:include page="footer.jsp"></jsp:include>
+
 <script src="${pageContext.request.contextPath}/assets/jquery/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="${pageContext.request.contextPath}/assets/bootstrap/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/app/js/ag-index.js"></script>
 
 <script>
+
+    var i = -1;
+    var time=0;
+    function junmper(){
+        i++;
+        if(i>4)
+            i=0;
+        $(".nav ul li").eq(i).addClass("bg").siblings().removeClass("bg");
+        $(".pic ul li").eq(i).fadeIn(100).siblings().fadeOut(100);
+        $(".pic ul li").eq(i).find(".img1").css({left:"-760px"});
+        $(".pic ul li").eq(i).find(".img2").css({display:"none",left:"-15px"});
+        $(".pic ul li").eq(i).find(".img1").animate({left:"0px"},500,function(){
+            $(".pic ul li").eq(i).find(".img2").css("display","block");
+            $(".pic ul li").eq(i).find(".img2").animate({left:"0px"},500);
+        });
+
+    }
+
+
+
+    junmper();
+    time=setInterval("junmper()",3700);
+    $(".nav ul li").click(function(){
+        i=$(this).index();
+        $(".nav ul li").eq(i).addClass("bg").siblings().removeClass("bg");
+        $(".pic ul li").eq(i).fadeIn(100).siblings().fadeOut(100);
+        $(".pic ul li").eq(i).find(".img1").css({left:"-760px"});
+        $(".pic ul li").eq(i).find(".img2").css({display:"none",left:"-15px"});
+        $(".pic ul li").eq(i).find(".img1").animate({left:"0px"},500,function(){
+            $(".pic ul li").eq(i).find(".img2").css("display","block");
+            $(".pic ul li").eq(i).find(".img2").animate({left:"0px"},500);
+        });
+    })
+
     $(function ($) {
+
+
         $(".quick-menu").hover(
                 function () {
                     $(this).addClass("hover");
@@ -76,6 +120,14 @@
 
         );
 
+
+
+
+        $(".nav ul li").hover(function(){
+            clearInterval(time);
+        },function(){
+            time=setInterval("junmper()",3700);
+        })
 
     });
 

@@ -1,0 +1,6 @@
+@for $i from 2 through 6 {
+  .images-list-#{$i}{
+    @include images-list($i);
+  }
+}
+

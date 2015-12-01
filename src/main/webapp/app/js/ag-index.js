@@ -200,3 +200,277 @@ myApp.controller('nav', function ($scope) {
 
 });
 
+myApp.controller('news', function ($scope) {
+    $scope.news = [
+        {
+            title: '[特价]手机低至99元',
+            content: '',
+        },
+        {
+            title: '[公告]京东“赣州馆”正式开启',
+            content: '',
+        },
+        {
+            title:'[特惠]澳洲大牌澳佳宝299-100',
+            content:'',
+        }
+    ]
+});
+
+myApp.controller('hots', function ($scope) {
+    $scope.hots = [
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        }        ,
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        }
+
+    ]
+});
+
+myApp.controller('grooms', function ($scope) {
+    $scope.grooms = [
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        }        ,
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        },
+        {
+            title: '魅族 魅蓝note2 16GB 灰色 移动联通双4G手机 双卡双待',
+            src: '//img12.360buyimg.com/n1/s130x130_jfs/t1237/316/1092345838/120397/92777f5/557658d0Nbf23ec1e.jpg',
+            href:'http://item.jd.com/1648552.html',
+            price:'799.00'
+        }
+    ]
+});
+
+myApp.controller('help' , function($scope){
+    $scope.help=[
+        {
+            name:'购物指南',
+            child:[
+                {
+                    sub:'购物流程',
+                    url:''
+                }, {
+                    sub:'会员介绍',
+                    url:''
+                }, {
+                    sub:'生活旅行/团购',
+                    url:''
+                }, {
+                    sub:'常见问题',
+                    url:''
+                }, {
+                    sub:'大家电',
+                    url:''
+                }, {
+                    sub:'联系客服',
+                    url:''
+                }
+            ]
+        },{
+            name:'配送方式',
+            child:[
+                {
+                    sub:'上门自提',
+                    url:''
+                }, {
+                    sub:'211限时达',
+                    url:''
+                }, {
+                    sub:'配送服务查询',
+                    url:''
+                }, {
+                    sub:'配送费收取标准',
+                    url:''
+                }, {
+                    sub:'海外配送',
+                    url:''
+                }
+            ]
+        },{
+            name:'支付方式',
+            child:[
+                {
+                    sub:'货到付款',
+                    url:''
+                }, {
+                    sub:'在线支付',
+                    url:''
+                }, {
+                    sub:'分期付款',
+                    url:''
+                }, {
+                    sub:'邮局汇款',
+                    url:''
+                }, {
+                    sub:'公司转账',
+                    url:''
+                }
+            ]
+        },{
+            name:'售后服务',
+            child:[
+                {
+                    sub:'售后政策',
+                    url:''
+                }, {
+                    sub:'价格保护',
+                    url:''
+                }, {
+                    sub:'退款说明',
+                    url:''
+                }, {
+                    sub:'返修/退换货',
+                    url:''
+                }, {
+                    sub:'取消订单',
+                    url:''
+                }
+            ]
+        },{
+            name:'特色服务',
+            child:[
+                {
+                    sub:'夺宝岛',
+                    url:''
+                }, {
+                    sub:' DIY装机',
+                    url:''
+                }, {
+                    sub:'延保服务',
+                    url:''
+                }, {
+                    sub:'京东E卡',
+                    url:''
+                }, {
+                    sub:'京东通信',
+                    url:''
+                }
+            ]
+        }
+    ]
+})

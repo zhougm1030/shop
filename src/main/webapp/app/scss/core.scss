@@ -1,9 +1,7 @@
 $top-tool-bar-bgcolor: #FAFAFA;
 $top-tool-bar-color: #777;
-$top-tool-bar-fontsize:12px;
-$top-tool-bar-height:30px;
-
-
+$top-tool-bar-fontsize: 12px;
+$top-tool-bar-height: 30px;
 
 .top-tool-bar {
   background-color: $top-tool-bar-bgcolor;
@@ -30,20 +28,21 @@ $top-tool-bar-height:30px;
   .quick-bar {
     font-size: 12px;
     text-align: right;
-    height:$top-tool-bar-height;
+    height: $top-tool-bar-height;
     float: right;
     @include clearfix;
-    .quick-menu{
+    .quick-menu {
 
       z-index: 999;
       float: left;
-      @include dropdown(80px,30px,0px,#FAFAFA,#FFF,80px,'r');
+      @include dropdown(80px, 30px, 0px, #FAFAFA, #FFF, 80px, 'r');
       @include clearfix;
 
-      .dd-main-layer{
-          border: {
-            width: 0px;
-          };
+      .dd-main-layer {
+        border: {
+          width: 0px;
+        }
+      ;
       }
 
       i {
@@ -56,21 +55,23 @@ $top-tool-bar-height:30px;
         transition: all 0.2s ease-in 0s;
       }
 
-      ul{
+      ul {
         padding-left: 0px;
-        list-style-type:none;
-        li{
-          padding:3px 0;
+        list-style-type: none;
+        li {
+          padding: 3px 0;
         }
       }
 
-      &.hover{
-        .dd-main-layer{
+      &.hover {
+        .dd-main-layer {
           border: {
             top: {
               width: 0px;
-            };
-          };
+            }
+          ;
+          }
+        ;
         }
 
         i {
@@ -79,27 +80,13 @@ $top-tool-bar-height:30px;
         }
       }
 
-      a{
+      a {
         color: $top-tool-bar-color;
-        &:hover{
+        &:hover {
           color: red;
         }
       }
     }
-  }
-}
-
-/* 连接 */
-a {
-  color: #333;
-  text-decoration: none;
-  outline: medium none;
-  -webkit-transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease;
-
-  &:hover,&:link,&:visited,&:active{
-    text-decoration: none;
   }
 }
 
