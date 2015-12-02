@@ -473,4 +473,34 @@ myApp.controller('help' , function($scope){
             ]
         }
     ]
-})
+});
+
+myApp.controller('selectors' , function($scope){
+   $scope.selectors=[
+       {
+           key:'品牌：',
+           value:[
+               { v:'乐视TV（Letv）'},{ v:'飞利浦（PHILIPS）'},{ v:'海信（Hisense）'}
+           ],
+       },
+       {
+           key:'价格：',
+           value:[
+               { v:'1-100'},{ v:'200-300'},{ v:'300-400'}
+           ],
+       },
+       {
+           key:'尺寸：',
+           value:[
+               { v:'65英寸以上'},{ v:'58-60英寸'},{ v:'55英寸'},{ v:'48英寸'}
+           ],
+       },
+       {
+           key:'电视类型：',
+           value:[
+               { v:'4k超清电视'},{ v:'智能电视'},{ v:'非智能电视'},{ v:'曲面电视'}
+           ],
+       }
+   ]
+});
+

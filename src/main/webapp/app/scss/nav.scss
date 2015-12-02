@@ -4,8 +4,7 @@ $nav-bar-width: 190px;
 .nav-bar {
   border-bottom: 2px solid #B1191A;
 
-
-  dl{
+  dl {
     display: block;
   }
   //fenlei
@@ -15,7 +14,6 @@ $nav-bar-width: 190px;
     @include dropdown($nav-bar-width, $nav-bar-height, 5px, #B1191A, #B1191A, 190px, 'l');
 
     .dd-main-layer {
-      border: 1px solid #B1191A;
       padding: 0px;
       text-align: left;
       border: 0px;
@@ -45,11 +43,10 @@ $nav-bar-width: 190px;
         height: 9px;
       }
 
-
       .dd-ul {
         padding-left: 0px;
         list-style-type: none;
-        margin-top:2px;
+        margin-top: 2px;
         margin-bottom: 1px;
         .dd-li {
           padding: 8px 10px;
@@ -61,7 +58,7 @@ $nav-bar-width: 190px;
           z-index: 1;
           height: 31px;
 
-          i{
+          i {
             position: absolute;
             z-index: 1;
             top: 9px;
@@ -81,47 +78,46 @@ $nav-bar-width: 190px;
             font-weight: 400;
             color: #fff;
 
-
           }
 
-          .dd-list-sub{
+          .dd-list-sub {
             display: none;
             position: absolute;
             top: 0;
             left: 189px;
             border-right: 1px solid #b61d1d;
             border-bottom: 1px solid #b61d1d;
-            height:100%;
+            height: 100%;
             width: 950px;
-            background-color:#FFF;
+            background-color: #FFF;
 
-            .list-sub{
-              height:100%;
+            .list-sub {
+              height: 100%;
               width: 950px;
             }
 
-            a{
+            a {
               color: #666 !important;
               text-decoration: none;
             }
 
-            .sub-dl{
+            .sub-dl {
               width: 100%;
               overflow: hidden;
               line-height: 2em;
               margin-bottom: 0px;
 
-              .sub-dt{
+              .sub-dt {
                 float: left;
                 position: relative;
 
                 padding: 8px 30px 0 0;
                 text-align: right;
-                a{
+                a {
                   font-weight: 700 !important;
                 }
 
-                i{
+                i {
                   position: absolute;
                   top: 13px;
                   right: 18px;
@@ -131,11 +127,11 @@ $nav-bar-width: 190px;
                   color: #666 !important;
                 }
               }
-              .sub-dd{
+              .sub-dd {
                 float: left;
                 width: 620px;
-                padding:6px 0;
-                a{
+                padding: 6px 0;
+                a {
                   float: left;
                   padding: 0 8px;
                   margin: 4px 0;
@@ -144,23 +140,22 @@ $nav-bar-width: 190px;
                   border-left: 1px solid #e0e0e0;
                   white-space: nowrap;
 
-                  &:hover{
-                    color: #b61d1d  !important;
+                  &:hover {
+                    color: #b61d1d !important;
                   }
-
 
                 }
               }
 
             }
           }
-          &:hover{
+          &:hover {
             background-color: #fff;
-            .dd-list-sub{
+            .dd-list-sub {
               display: block;
-              padding: 0 0 0 20px ;
+              padding: 0 0 0 20px;
             }
-            a{
+            a {
               color: #b61d1d;
             }
           }
@@ -175,13 +170,28 @@ $nav-bar-width: 190px;
       .dd-main-layer {
         border: 0px;
       }
-      .dd-content-layer{
+      .dd-content-layer {
         border: 0px;
       }
     }
   }
 
-  //daohang
+  .category-hide{
+      .dd-content-layer{
+          display: none;
+      }
+    &.hover {
+      .dd-main-layer {
+        border: 0px;
+      }
+      .dd-content-layer {
+        border: 0px;
+        display: block;
+      }
+    }
+  }
+
+    //daohang
   .nav-menu {
     float: left;
     height: $nav-bar-height;
@@ -206,7 +216,7 @@ $nav-bar-width: 190px;
             color: #B1191A;
           }
         }
-      } ;
+      };
     }
   }
 

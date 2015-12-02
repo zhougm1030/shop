@@ -7,8 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="nav-bar"  ng-controller="nav">
-    <div class="container ">
-        <div class="category">
+    <div class="container">
+        <div class="category category-hide">
             <div class="dd-main-layer">
                 <a href="#">全部商品分类</a>
             </div>

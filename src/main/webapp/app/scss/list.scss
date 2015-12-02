@@ -1,0 +1,33 @@
+.list-main{
+  .list-filter{
+    border-bottom: 1px solid #DDD;
+    background: #F1F1F1 none repeat scroll 0% 0%;
+    line-height: 34px;
+    height: 34px;
+    overflow: hidden;
+  }
+  .gl-warp{
+
+    @extend .ul-pd-l-0;
+    @include clearfix;
+
+    .gl-item{
+       width: 100 / 5 * 1%;
+       float: left;
+      border: 1px solid #FFFFFF;
+      .p-image{
+
+      }
+
+      &.hover{
+        @extend .border-all;
+        position: relative;
+        z-index: 2;
+        box-shadow:4px 4px 2px #ededed;
+        -moz-box-shadow:4px 4px 2px #ededed;
+        -webkit-box-shadow:4px 4px 2px #ededed;
+      }
+    }
+  }
+
+}

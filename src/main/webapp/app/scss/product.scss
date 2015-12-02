@@ -1,0 +1,37 @@
+.p-info {
+  .info-image {
+
+  }
+  .info-base {
+    b {
+      font-size: 18px;
+
+    }
+    .summary {
+      background: #F7F7F7 none repeat scroll 0% 0%;
+      padding: 10px 5px;
+      font-size: 14px;
+      line-height:30px;
+      .p-price {
+        display: inline-block;
+        vertical-align: middle;
+        color: #E4393C;
+        font-size: 20px;
+      }
+
+      .dt {
+        float: left;
+        width: 72px;
+        display: inline;
+        text-align: right;
+        font-family: simsun;
+      }
+
+      .dd {
+        width: 432px;
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
